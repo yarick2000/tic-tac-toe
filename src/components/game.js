@@ -94,7 +94,9 @@ const Game = () => {
         />
       </div>
       <div className="game-info">
-        <Status nextPlayer={currentStage.nextPlayer} status={status} winner={winner} />
+        <Status 
+          player={status === GAME_STATUS.ONGOING ? currentStage.nextPlayer : winner} 
+          status={status}  />
         <History 
           history={history} 
           sorting={historySorting}

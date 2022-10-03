@@ -1,15 +1,15 @@
 import React from "react";
 import { GAME_STATUS } from '../utils/gameLogic';
 
-const Status = ({nextPlayer, winner, status}) => {
+const Status = ({player, status}) => {
 
   let desc = null;
   switch (status) {
     case GAME_STATUS.ONGOING: 
-      desc = `Next player: ${nextPlayer}`;
+      desc = `Next player: ${player}`;
       break;
     case GAME_STATUS.ENDED:
-      desc = `Winner: ${winner}`;
+      desc = `Winner: ${player}`;
       break;
     case GAME_STATUS.DRAW:
       desc = 'Draw';
