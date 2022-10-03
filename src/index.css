@@ -7,14 +7,21 @@ ol, ul {
   padding-left: 30px;
 }
 
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
 .board-row:after {
   clear: both;
   content: "";
   display: table;
-}
-
-.status {
-  margin-bottom: 10px;
 }
 
 .square {
@@ -31,6 +38,10 @@ ol, ul {
   text-align: center;
   width: 34px;
   cursor: pointer;
+}
+
+.square.marked {
+  background: #858585;
 }
 
 .square:hover {
@@ -52,4 +63,29 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+.game-info .move {
+  margin-left: 20px;
+}
+
+.game-info .active {
+  font-weight: bold;
+}
+
+.game-info .sort {
+  margin-left: 30px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-board {
+  width: fit-content;
+}
+
+.game-size input {
+  text-align: center;
 }

@@ -1,3 +1,9 @@
+const GAME_STATUS = {
+  'ONGOING' : 1,
+  'ENDED' : 2,
+  'DRAW' : 3
+};
+
 const getLineWinner = (line, squares) => {
   const values = line.map(l => squares[l]);
 
@@ -5,6 +11,16 @@ const getLineWinner = (line, squares) => {
     return values[0];
   }
   return null;
+};
+
+const getWinningLine = (squares) => {
+  const lines = createLines(squares);  
+  let winner = null;
+  for (let i = 0; i < lines.length; i++) {
+    winner = getLineWinner(lines[i], squares);
+    if (winner) return lines[i];
+  }
+  return null;      
 };
 
 const createLines = (squares) => {
@@ -35,7 +51,7 @@ const createLines = (squares) => {
   const diagonal2 = [];
   for(let i = 0; i < size; i++) {
     diagonal1.push(matrix[i][i]);
-    diagonal2.push(matrix[size - i - 1][size - i - 1]);
+    diagonal2.push(matrix[size - i - 1][i]);
   }
   lines.push(diagonal1,diagonal2);
   return lines;
@@ -51,4 +67,4 @@ const calculateWinner = (squares) => {
   return winner;      
 };
 
-export { calculateWinner };
+export { calculateWinner, getWinningLine, GAME_STATUS };

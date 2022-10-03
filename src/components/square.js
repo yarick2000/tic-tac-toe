@@ -1,11 +1,13 @@
 import React from 'react';
 import '../index.css';
 
-const Square = ({ value, onClick }) => {
+const Square = ({ value, marked, onClick }) => {
+  const className = ["square"];
+  if (marked) className.push("marked");
   return (
     <button 
-      className="square" 
-      onClick={() => onClick && onClick()}
+      className={className.join(' ')}
+      onClick={onClick}
     >
       {value}
     </button>
